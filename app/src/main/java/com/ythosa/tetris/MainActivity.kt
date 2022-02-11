@@ -12,11 +12,14 @@ import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     var tvHighScore: TextView? = null
+    var appPreferences: AppPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+
+        appPreferences = AppPreferences(this)
 
         val btnNewGame = findViewById<Button>(R.id.btn_new_game)
         btnNewGame.setOnClickListener(this::onBtnNewGameClick)
@@ -37,8 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onBtnResetScoreClick(view: View) {
-        val preferences = AppPreferences(this)
-        preferences.clearHighScore()
+        appPreferences?.clearHighScore()
         updateHighScore()
 
         Snackbar.make(view, "Score successfully reset", Snackbar.LENGTH_SHORT).show()
@@ -50,8 +52,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateHighScore() {
         tvHighScore?.text = String.format(
-            resources.getString(R.string.high_score),
-            AppPreferences(this).getHighScore()
+            resources.getString(R.string.high_score_default),
+            appPreferences?.getHighScore()
         )
     }
 }
