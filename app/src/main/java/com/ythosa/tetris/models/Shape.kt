@@ -18,9 +18,9 @@ enum class Shape(val frameCount: Int, val startPosition: Int) {
                     .addRow("110")
                     .addRow("011")
                 1 -> Frame(2)
-                    .addRow("100")
-                    .addRow("010")
-                    .addRow("001")
+                    .addRow("01")
+                    .addRow("11")
+                    .addRow("10")
                 else -> throw InvalidFrameNumberException(frameNumber)
             }
         }
