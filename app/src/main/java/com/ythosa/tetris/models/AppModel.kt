@@ -208,7 +208,7 @@ class AppModel {
         }
     }
 
-    private fun startGame() {
+    fun startGame() {
         if (isGameActive())
             return
         currentState = Statuses.ACTIVE.name
