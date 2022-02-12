@@ -73,7 +73,13 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="9" />
+            android:layout_weight="9">
+
+            <com.ythosa.tetris.view.TetrisView
+                android:id="@+id/view_tetris"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

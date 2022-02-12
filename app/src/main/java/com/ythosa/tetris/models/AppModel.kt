@@ -22,7 +22,7 @@ class AppModel {
         this.preferences = preferences
     }
 
-    private fun getCellStatus(row: Int, column: Int): Byte? {
+    fun getCellStatus(row: Int, column: Int): Byte? {
         return field[row][column]
     }
 
@@ -36,7 +36,7 @@ class AppModel {
         return this.currentState == Statuses.AWAITING_START.name
     }
 
-    private fun isGameActive(): Boolean {
+    fun isGameActive(): Boolean {
         return this.currentState == Statuses.ACTIVE.name
     }
 
